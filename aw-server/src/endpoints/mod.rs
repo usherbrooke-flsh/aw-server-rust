@@ -111,6 +111,7 @@ pub fn build_rocket(server_state: ServerState, config: AWConfig) -> rocket::Rock
             routes![import::bucket_import_json, import::bucket_import_form],
         )
         .mount("/api/0/export", routes![export::buckets_export])
+        .mount("/api/0/export-espaceun", routes![export::buckets_export_espaceun])
         .mount(
             "/api/0/settings",
             routes![

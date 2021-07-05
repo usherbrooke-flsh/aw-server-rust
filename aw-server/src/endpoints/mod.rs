@@ -25,6 +25,7 @@ mod export;
 mod import;
 mod query;
 mod settings;
+mod category;
 
 pub use util::HttpErrorJson;
 
@@ -121,6 +122,7 @@ pub fn build_rocket(server_state: ServerState, config: AWConfig) -> rocket::Rock
                 settings::setting_delete
             ],
         )
+        .mount("/api/0/categories", routes![category::categories_get])
         .attach(cors::cors(&config))
         .manage(server_state)
         .manage(config)

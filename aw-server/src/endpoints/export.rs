@@ -65,13 +65,14 @@ pub fn buckets_export_espaceun(state: State<ServerState>) -> Result<Response, Ht
         export.buckets.insert(bid, bucket);
     }
 
-    println!("{:?}", base64::encode(serde_json::to_string(&export).expect("Failed to serialize")));
+    let mut form = HashMap::new();
+    form.insert("content_json", base64::encode(serde_json::to_string(&export).expect("Failed to serialize")));
 
     let client = reqwest::blocking::Client::new();
     let res = match client.post("https://espaceun.uqam.ca/rest-v1/activity-watch/add/")
         .header(AUTHORIZATION, "Basic ZG91YmxlZGFzaGF3c2VjcmV0aWQ=")
         .header(CONTENT_TYPE, "application/json")
-        .body(base64::encode(serde_json::to_string(&export).expect("Failed to serialize")))
+        .form(&form)
         .send() {
             Ok(data) => data,
             Err(e) => {

@@ -25,7 +25,7 @@ for archtargetstr in \
 ; do
     arch=$(echo $archtargetstr | cut -d " " -f 1)
     target=$(echo $archtargetstr | cut -d " " -f 2)
-    NDK_ARCH_DIR="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin"
+    NDK_ARCH_DIR="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/darwin-x86_64/bin"
     echo "Building for $arch..."
 
     if [ -d "$NDK_ARCH_DIR" ]; then

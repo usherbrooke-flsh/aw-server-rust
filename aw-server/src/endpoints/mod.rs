@@ -26,6 +26,7 @@ mod import;
 mod query;
 mod settings;
 mod category;
+mod translation;
 
 pub use util::HttpErrorJson;
 
@@ -123,6 +124,7 @@ pub fn build_rocket(server_state: ServerState, config: AWConfig) -> rocket::Rock
             ],
         )
         .mount("/api/0/categories", routes![category::categories_get])
+        .mount("/api/0/translations", routes![translation::translations_get])
         .attach(cors::cors(&config))
         .manage(server_state)
         .manage(config)

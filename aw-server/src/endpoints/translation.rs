@@ -10,7 +10,7 @@ use crate::endpoints::{HttpErrorJson, ServerState};
 #[get("/")]
 pub fn translations_get(_state: State<ServerState>) -> Result<JsonValue, HttpErrorJson> {
     let client = reqwest::blocking::Client::new();
-    let response = match client.get("https://espaceun.uqam.ca/rest-v1/xrxh_imsw/")
+    let response = match client.get("https://espaceun.uqam.ca/rest-v1/xrxh_imsw/?limit_to=9999999")
         .header(AUTHORIZATION, "Basic ZG91YmxlZGFzaGF3c2VjcmV0aWQ=")
         .header(CONTENT_TYPE, "application/json")
         .send() {

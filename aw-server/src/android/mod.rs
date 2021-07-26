@@ -56,7 +56,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_greeting(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_greeting(
         env: JNIEnv,
         _: JClass,
         java_pattern: JString,
@@ -94,7 +94,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_startServer(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_startServer(
         env: JNIEnv,
         _: JClass,
         java_asset_path: JString,
@@ -125,7 +125,7 @@ pub mod android {
     static mut INITIALIZED: bool = false;
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_initialize(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_initialize(
         env: JNIEnv,
         _: JClass,
     ) {
@@ -152,7 +152,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_setDataDir(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_setDataDir(
         env: JNIEnv,
         _: JClass,
         java_dir: JString,
@@ -162,7 +162,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_getBuckets(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_getBuckets(
         env: JNIEnv,
         _: JClass,
     ) -> jstring {
@@ -171,7 +171,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_createBucket(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_createBucket(
         env: JNIEnv,
         _: JClass,
         java_bucket: JString,
@@ -191,7 +191,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_heartbeat(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_heartbeat(
         env: JNIEnv,
         _: JClass,
         java_bucket_id: JString,
@@ -218,7 +218,7 @@ pub mod android {
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_net_activitywatch_android_RustInterface_getEvents(
+    pub unsafe extern "C" fn Java_ca_uqam_espaceunaw_RustInterface_getEvents(
         env: JNIEnv,
         _: JClass,
         java_bucket_id: JString,

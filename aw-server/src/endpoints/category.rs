@@ -16,7 +16,7 @@ pub fn categories_get(_state: State<ServerState>) -> Result<JsonValue, HttpError
         .send() {
             Ok(data) => data,
             Err(e) => {
-                warn!("Query failed: {:?}", e);
+                warn!("Category query failed: {:?}", e);
                 return Err(HttpErrorJson::new(
                     Status::InternalServerError,
                     e.to_string(),
@@ -27,7 +27,7 @@ pub fn categories_get(_state: State<ServerState>) -> Result<JsonValue, HttpError
     let categories = match res_categories.json::<serde_json::Value>() {
         Ok(data) => data,
         Err(e) => {
-            warn!("Query failed: {:?}", e);
+            warn!("Category encoding failed: {:?}", e);
             return Err(HttpErrorJson::new(
                 Status::InternalServerError,
                 e.to_string(),
@@ -41,7 +41,7 @@ pub fn categories_get(_state: State<ServerState>) -> Result<JsonValue, HttpError
         .send() {
             Ok(data) => data,
             Err(e) => {
-                warn!("Query failed: {:?}", e);
+                warn!("Sub-category query failed: {:?}", e);
                 return Err(HttpErrorJson::new(
                     Status::InternalServerError,
                     e.to_string(),
@@ -52,7 +52,7 @@ pub fn categories_get(_state: State<ServerState>) -> Result<JsonValue, HttpError
     let sub_categories = match res_sub.json::<serde_json::Value>() {
         Ok(data) => data,
         Err(e) => {
-            warn!("Query failed: {:?}", e);
+            warn!("Sub-category encoding failed: {:?}", e);
             return Err(HttpErrorJson::new(
                 Status::InternalServerError,
                 e.to_string(),

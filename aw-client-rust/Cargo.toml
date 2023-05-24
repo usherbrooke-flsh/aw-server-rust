@@ -11,6 +11,7 @@ serde = "1.0"
 serde_json = "1.0"
 chrono = { version = "0.4", features = ["serde"] }
 aw-models = { path = "../aw-models" }
+rustls = "0.20.8"
 
 [dev-dependencies]
 aw-datastore = { path = "../aw-datastore" }
